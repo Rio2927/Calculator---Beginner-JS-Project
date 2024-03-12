@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    
+    Calculator
+
+    <div class="container">
+    <div class="inpt">Enter the Number</div>   <!-- Use Event Delegation next time to add event listener because querySelectorAll creates node list so we need to iterate over each element (in this case button),iska matlab hume ek ek button pe add event listener lagana hoga agar hum querySelectorAll use kar rhe hai to-->
+        
+       
+        <button>1</button>      
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button>0</button>
+        
+        
+    </div>
+
+
+
+    <script>
+        
+     let inpt = document.querySelector(".inpt")                    // isme ek varibale inpt se div target kiya jiska class inpt tha
+     let btn = document.querySelectorAll("button")                 // isme ek btn variable banaya jisse saare buttons ko target kiya (Using queryselectorall)      
+     btn.forEach(function(eb) {                                    // Kyonki ki querySelectorAll use kiya hai to hum ek addeventlistener sab buttons pe nhi laga skte to forEach type ka ek loop hota hai wo use kiya,jisme wo sabpe elements pe iterate karke sabpe addeventlistener laga dega
+        eb.addEventListener("click",function(e){                   // simple addeventlistener lagaya hai      
+            if (e.target.tagName === "BUTTON") {                   // Isme if loop se condition daali ki jispe click kiya hai agar wo button ho to neeche waala task complete hona chahiye
+                inpt.innerHTML = e.target.innerHTML                // Isme inpt jo class hai uska innerHTML jis button pe click hua hai uske innerHTML se replace ho jaaye
+            }
+        })
+     })
+     
+    </script>
+</body>
+</html>
